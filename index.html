@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="description" content="Réservation de vélo sur la ville de Lyon. Réserver un vélo dans la région Lyonnaise. Simplifiez-vos déplacements en ville avec notre application de location de vélo. Page HTML5, CSS3 et Javascript." />
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://abicyclette.virtualdev.fr/" />
+        <meta property="og:title" content="Simplifiez-vos déplacements en ville, réserver votre vélo dans l'une de nos station à Lyon" />
+        <meta property="og:description"
+            content="Réservation de vélo sur Lyon. Réserver un vélo dans la région Lyonnaise. Simplifiez-vos déplacements en ville avec notre application. Page HTML5, CSS3 et Javascript." />
+        <meta property="og:image" content="https://abicyclette.virtualdev.fr/image/slide1.jpg" />
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://abicyclette.virtualdev.fr/" />
+        <meta property="twitter:title" content="Simplifiez-vos déplacements en ville, réserver votre vélo dans l'une de nos station à Lyon" />
+        <meta property="twitter:description"
+            content="Réservation de vélo sur Lyon. Réserver un vélo dans la région Lyonnaise. Simplifiez-vos déplacements en ville avec notre application. Page HTML5, CSS3 et Javascript." />
+        <meta property="twitter:image" content="https://abicyclette.virtualdev.fr/image/slide1.jpg" />
+        <title>À bicyclette</title>
+        <link rel="shortcut icon" href="image/favicon.ico">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css" integrity="sha384-rtJEYb85SiYWgfpCr0jn174XgJTn4rptSOQsMroFBPQSGLdOC5IbubP6lJ35qoM9" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" /> <!--Placer en dernier dans le head pour être sur que le css soit bien pris en compte par le navigateur-->
+    </head>
+    
+    <body>
+        <!-- l'en-tête du site
+        ========================================================================== -->
+        <header class="couleur__principal">
+            <div id="logo">
+                <h1>À bicyclette</h1>
+                <img src="image/veloeco.png" alt="Logo À bicyclette: dessin d'un vélo éléctrique de couleur vert">
+            </div>
+
+            <div id="bloc__soustitre">
+                <h2>Simplifiez-vos déplacements en ville.<br><strong class="clignote">Louez-moi</strong></h2>
+            </div>
+        </header>
+
+        <!-- Corps du site
+        ========================================================================== -->
+        <section>
+            <!-- // Slider -->
+            <div id="diaporama">
+                <div id="images__diaporama">
+                    <figure>
+                        <img class="img__slider" src="image/slide1.jpg" alt="Photo d'un homme sur un vélo jaune en ville.">
+                        <figcaption class="overlay">
+                            <h2>Bienvenue sur À bicyclette</h2>
+                            <p>Réserver un vélo n'a jamais été aussi facile !</p>
+                        </figcaption>
+                    </figure>
+                    <figure>
+                        <img class="img__slider" src="image/slide2.jpg" alt="Photo d'une personne qui passe sur un pont à vélo en direction du centre ville.">
+                        <figcaption class="overlay">
+                            <h2>Comment cela fonctionne ?</h2>
+                            <p>Il suffit de suivre les différentes étapes.</p>
+                        </figcaption>
+                    </figure>
+                    <figure>
+                        <img class="img__slider" src="image/slide3.png" alt="Image d'une carte google de la ville de Lyon avec des marqueurs de station de location de vélo et son formaulaire de réservation.">
+                        <figcaption class="overlay">
+                            <h2>1. Choisir votre station</h2>
+                            <p>Sélectionnez votre station sur la carte et réserver.</p>
+                        </figcaption>
+                    </figure>
+                    <figure>
+                        <img class="img__slider" src="image/slide4.png" alt="Image d'une carte google de la ville de Lyon avec des marqueurs de station de location de vélo et son formaulaire de réservation ainsi que la  confirmation de réservation via une signature.">
+                        <figcaption class="overlay">
+                            <h2>2. Valider votre réservation</h2>
+                            <p>Il suffit de signer la réservation et d'appuyer sur "Valider"</p>
+                        </figcaption>
+                    </figure>
+                </div>
+                <div id="bouton__diaporama">
+                    <span id="bouton__gauche" class="bouton"><i class="fas fa-caret-left"></i></span>
+                    <span id="bouton__droit" class="bouton"><i class="fas fa-caret-right"></i></span>
+                </div>
+                <div id="statut__diaporama">
+                    <span id="cercle" class="cercles"></span>
+                    <span class="cercles"></span>
+                    <i id="pause" class="fas fa-pause controles"></i>
+                    <i id="play" class="fas fa-play controles invisible"></i>
+                    <span class="cercles"></span>
+                    <span class="cercles"></span>
+                </div>
+            </div>
+            <!-- // Google map et container information réservation -->
+            <div id="container">
+                <div id="block__map">
+                    <div id="map__lyon"></div>
+                    <div id="message__reservation" class="forme__couleur">
+                        <h2>Confirmation de votre réservation.</h2>
+                        <p>Votre vélo est bien réservé.<br /><span id="infos__client"></span><br /> A la station: <span id="station"></span><br /></p>
+                        <br />
+                        <p><span id="compteur__chrono"></span></p><br />
+                        <button id="btn__annuler__reservation">Annuler la réservation</button>
+                    </div > 
+                </div>
+                <!-- // Formulaire de réservation -->
+                <div id="reservation"> <!-- // Pour le responsive-->
+                    <div id="block__reservation" class="forme__couleur">
+                        <h2>Réservation</h2>
+                        <span id="station__statut" class="clignote"></span>
+                        <p>Station<br /><span id="station__name"></span></p>
+                        <p>
+                            <span id="place__dispo"></span> places disponibles.<br />
+                            <span id="velo__dispo"></span><span id="reste__velo"></span> vélo disponibles. <span id="velo__reserver"></span>
+                        </p>
+                        
+                        <form id="formulaire__reservation">
+                            <p>
+                                <input type="text" name="nom" id="nom" placeholder="Nom" required><br />
+                                <input type="text" name="prenom" id="prenom" placeholder="Prénom" required><br />
+                                <input type="submit" id="envois__infos" value="Réservation">
+                            </p>
+                        </form>
+                    </div>
+                    <!-- // Canvas -->
+                    <div id="bloc__canvas" class="forme__couleur">
+                        <h2>Signer pour Valider votre réservation</h2>
+                        <canvas id="canvas" width="260" height="150">
+                            Votre navigateur est incompatible avec le canvas !
+                        </canvas>
+                        <br />
+                        <button id="btn__canvas__confirmer">Valider</button>
+                        <button id="btn__canvas__annuler">Effacer</button><br />
+                        <span id="erreur__signature"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer id="last__ancre">
+            <p>Copyright © 2019 VirtualDev |<br />| Design par VirtualDev</p>
+        </footer>
+
+        <!-- Pour ne pas bloquer les chargements des scripts (le navigateur va d'abord charger la page puis exécuter les fichiers JS)
+        ========================================================================== -->
+        <script src="js/slider.js"></script>
+        <script src="js/Reservation.js"></script>
+        <script src="js/Markerclusterer.js"></script>
+        <script src="js/Canvas.js"></script>
+        <script src="js/Map.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoi4_-QjCmvJmoZYkYeq5u6T-x2FjDI-k"></script>
+        <script src="js/TheBrain.js"></script>  
+    </body>
+</html>
